@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import useCustomCounter from './Custom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App =()=> {
+    const data= useCustomCounter();
+    const data1= useCustomCounter();
+    return (
+        <React.Fragment>
+            <h3>A custom hook allows you to extract some components logic into a reusable function.</h3>
+            <h4>Counter Up:{data.count}</h4>
+            <button  type ="button" onClick={data.handleCounter}>Click Me</button>
+            <h4>Counter Up:{data1.count}</h4>
+            <button  type ="button" onClick={data1.handleCounter}>Click Me</button>
+            </React.Fragment>
+    )
 }
 
 export default App;
